@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reginald | Data Analyst & Data Scientist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+    <div id="scroll-progress"></div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Reginald</div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#metrics" class="nav-link">Metrics</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">
+    🌙
+</button>
+
+<a href="https://www.linkedin.com/in/reginald-karanja/"
+   target="_blank"
+   class="linkedin-link"
+   aria-label="LinkedIn Profile">
+    in
+</a>
+
+<a href="https://www.linkedin.com/in/reginald-karanja/"
+   target="_blank"
+   class="linkedin-link"
+   data-tooltip="Let’s connect on LinkedIn"
+   aria-label="LinkedIn Profile">
+    in
+</a>
+        </div>
+        
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero reveal">
+        <div class="hero-text animate-left">
+            <h1>Hi, I’m <span>Reginald</span></h1>
+            <h2>Data Analyst & Data Scientist</h2>
+            <p>
+                I transform raw data into actionable insights using Python, SQL,
+                visualization, and machine learning.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="https://github.com/Reginaldbigdata" target="_blank" class="btn secondary">
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image animate-right">
+            <img src="Images/profile.jpg" alt="Reginald Profile Picture">
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <h2 class="reveal">Selected Projects</h2>
+
+        <div class="projects-grid">
+            <div class="project-card reveal delay-1">
+                <!-- Screenshots -->
+                <img src="Images/projects/vehicle-renewal-churn.png" alt="Churn Analysis Screenshot">
+                <img src="Images/projects/vehicle-renewal-prediction.png" alt="Renewal Prediction Screenshot">
+
+                <!-- Project Title -->
+                <h3>Vehicle Renewal Prediction & Churn Analysis</h3>
+
+                <!-- Collapsible Project Description -->
+                <button class="toggle-details">Show Details</button>
+                <div class="details">
+                    <p>This project performs an end-to-end analysis of vehicle renewal data:</p>
+                    <ul>
+                        <li>Identify customer churn between 2024 and 2025</li>
+                        <li>Calculate retention and churn rates using SQL</li>
+                        <li>Predict the likelihood of customer renewals in 2026 using machine learning</li>
+                        <li>Produce Excel-ready outputs for business decision-making</li>
+                    </ul>
+                    <p><strong>Data Sources:</strong> 2024_renewals.csv & 2025_renewals.csv</p>
+                    <p><strong>Techniques:</strong> SQL Analysis, Random Forest Classifier, Python (Pandas, NumPy, Scikit-learn), Excel</p>
+                    <p><strong>Business Impact:</strong> Identify high-risk churn customers, prioritize follow-ups, and improve renewal rates.</p>
+                    <p><strong>Notes & Limitations:</strong> 2026 target variable simulated; predictions are directional insights.</p>
+                </div>
+
+                <!-- GitHub Link -->
+                <a href="https://github.com/Reginaldbigdata/vehicle-renewal-churn-prediction" target="_blank">
+                    View on GitHub →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <h2 class="reveal">Core Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill reveal">
+                <div class="skill-header">
+                    <span>Python</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="90"></div>
+                </div>
+            </div>
+
+            <div class="skill reveal">
+                <div class="skill-header">
+                    <span>SQL</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="90"></div>
+                </div>
+            </div>
+
+            <div class="skill reveal">
+                <div class="skill-header">
+                    <span>Data Analysis (Pandas, NumPy)</span>
+                    <span>88%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="88"></div>
+                </div>
+            </div>
+
+            <div class="skill reveal">
+                <div class="skill-header">
+                    <span>Power BI / Data Visualization</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="80"></div>
+                </div>
+            </div>
+
+            <div class="skill reveal">
+                <div class="skill-header">
+                    <span>Excel</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="90"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS -->
+    <section id="metrics" class="section">
+        <h2 class="reveal">By the Numbers</h2>
+
+        <div class="metrics-grid">
+            <div class="metric reveal">
+                <h3 class="counter" data-target="5">0</h3>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="metric reveal">
+                <h3 class="counter" data-target="12">0</h3>
+                <p>Datasets Analyzed</p>
+            </div>
+
+            <div class="metric reveal">
+                <h3 class="counter" data-target="3">0</h3>
+                <p>Models Built</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+    <h2 class="reveal">Let’s Work Together</h2>
+
+    <p class="contact-intro reveal">
+        I’m open to data analysis, data science, and analytics-driven roles.
+        If you’re looking for someone who can turn data into decisions,
+        let’s talk.
+    </p>
+
+    <div class="contact-actions reveal">
+        <a href="mailto:reginald.bigdata@gmail.com" class="btn primary">
+            Email Me
+        </a>
+
+        <a href="https://www.linkedin.com/in/reginald-karanja/"
+           target="_blank"
+           class="btn secondary">
+            Connect on LinkedIn
+        </a>
+    </div>
+</section>
+
+    <script src="main.js"></script>
+</body>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>
+            © <span id="year"></span> Reginald Karanja · Data Analyst & Data Scientist
+        </p>
+
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/reginald-karanja/" target="_blank">
+                LinkedIn
+            </a>
+            <span>·</span>
+            <a href="https://github.com/Reginaldbigdata" target="_blank">
+                GitHub
+            </a>
+        </div>
+    </div>
+</footer>
+
+</html>
