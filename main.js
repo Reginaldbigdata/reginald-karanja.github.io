@@ -1,3 +1,4 @@
+// ================== SCROLL REVEAL & ANIMATIONS ==================
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
@@ -6,14 +7,14 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
                 entry.target.classList.add("active");
 
-                // 🔥 Animate skill bars
+                // Animate skill bars
                 const bars = entry.target.querySelectorAll(".skill-progress");
                 bars.forEach(bar => {
                     const level = bar.getAttribute("data-level");
                     bar.style.width = level + "%";
                 });
 
-                // 🔥 Animate counters
+                // Animate counters
                 const counters = entry.target.querySelectorAll(".counter");
                 counters.forEach(counter => {
                     const target = +counter.getAttribute("data-target");
@@ -37,17 +38,12 @@ const observer = new IntersectionObserver(
             }
         });
     },
-    {
-        threshold: 0.15
-    }
+    { threshold: 0.15 }
 );
 
-reveals.forEach(reveal => {
-    observer.observe(reveal);
-});
+reveals.forEach(reveal => observer.observe(reveal));
 
-
-// NAVBAR ACTIVE LINK HIGHLIGHT
+// ================== NAVBAR ACTIVE LINK ==================
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -56,7 +52,7 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 60; // offset for sticky navbar
+        const sectionTop = section.offsetTop - 60;
         const sectionId = section.getAttribute("id");
 
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
@@ -70,7 +66,7 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// COLLAPSIBLE PROJECT DETAILS
+// ================== COLLAPSIBLE PROJECT DETAILS ==================
 document.querySelectorAll(".toggle-details").forEach(button => {
     button.addEventListener("click", () => {
         const details = button.nextElementSibling;
@@ -79,12 +75,10 @@ document.querySelectorAll(".toggle-details").forEach(button => {
     });
 });
 
-
-// THEME TOGGLE
+// ================== THEME TOGGLE ==================
 const toggleBtn = document.getElementById("theme-toggle");
 const body = document.body;
 
-// Load saved theme
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light") {
     body.classList.add("light-theme");
@@ -94,23 +88,50 @@ if (savedTheme === "light") {
 toggleBtn.addEventListener("click", () => {
     body.classList.toggle("light-theme");
     const isLight = body.classList.contains("light-theme");
-
     toggleBtn.textContent = isLight ? "☀️" : "🌙";
     localStorage.setItem("theme", isLight ? "light" : "dark");
 });
 
-
-// SCROLL PROGRESS INDICATOR
+// ================== SCROLL PROGRESS INDICATOR ==================
 const progressBar = document.getElementById("scroll-progress");
-
 window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
-
     progressBar.style.width = scrollPercent + "%";
 });
 
-
-// AUTO UPDATE FOOTER YEAR
+// ================== AUTO UPDATE FOOTER YEAR ==================
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// ================== CV DOWNLOAD TRACKING ==================
+function setupCVTracking(btnId, storageKey) {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+        btn.addEventListener("click", () => {
+            let clicks = localStorage.getItem(storageKey);
+            clicks = clicks ? parseInt(clicks) + 1 : 1;
+            localStorage.setItem(storageKey, clicks);
+            console.log(`${btnId} clicked ${clicks} times`);
+        });
+    }
+}
+setupCVTracking("cv-download", "cvClicks");
+setupCVTracking("cv-download-sticky", "stickyCvClicks");
+
+const metric = document.getElementById("cv-metric");
+if (metric) {
+    metric.textContent = `CV Downloads: ${localStorage.getItem("cvClicks") || 0}`;
+}
+
+// ================== STICKY CV BUTTON ON SCROLL ==================
+const stickyCV = document.querySelector(".sticky-cv");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        stickyCV.style.opacity = "1";
+        stickyCV.style.transform = "translateY(0)";
+    } else {
+        stickyCV.style.opacity = "0";
+        stickyCV.style.transform = "translateY(20px)";
+    }
+});
