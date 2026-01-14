@@ -579,4 +579,24 @@ body {
     opacity: 0.5;
 }
 
+.elite {
+    position: relative;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(56,189,248,0.15);
+    color: #38bdf8;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+}
+
+.skills-ats {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-top: 20px;
+}
+
 
