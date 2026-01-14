@@ -135,3 +135,54 @@ window.addEventListener("scroll", () => {
         stickyCV.style.transform = "translateY(20px)";
     }
 });
+
+// ⭐ CV STAR RATING SYSTEM
+const stars = document.querySelectorAll("#cv-stars span");
+const avgRatingEl = document.getElementById("avg-rating");
+const totalRatingsEl = document.getElementById("total-ratings");
+
+// Load existing ratings
+let ratings = JSON.parse(localStorage.getItem("cvRatings")) || [];
+
+function updateRatingDisplay() {
+    if (ratings.length === 0) {
+        avgRatingEl.textContent = "0.0";
+        totalRatingsEl.textContent = "0";
+        return;
+    }
+
+    const sum = ratings.reduce((a, b) => a + b, 0);
+    const avg = (sum / ratings.length).toFixed(1);
+
+    avgRatingEl.textContent = avg;
+    totalRatingsEl.textContent = ratings.length;
+}
+
+stars.forEach(star => {
+    star.addEventListener("mouseover", () => {
+        const value = star.dataset.value;
+        stars.forEach(s => {
+            s.classList.toggle("hovered", s.dataset.value <= value);
+        });
+    });
+
+    star.addEventListener("mouseout", () => {
+        stars.forEach(s => s.classList.remove("hovered"));
+    });
+
+    star.addEventListener("click", () => {
+        const value = parseInt(star.dataset.value);
+        ratings.push(value);
+        localStorage.setItem("cvRatings", JSON.stringify(ratings));
+
+        stars.forEach(s => {
+            s.classList.toggle("selected", s.dataset.value <= value);
+        });
+
+        updateRatingDisplay();
+        console.log("CV Rating submitted:", value);
+    });
+});
+
+updateRatingDisplay();
+
