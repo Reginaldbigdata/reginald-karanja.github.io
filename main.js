@@ -186,3 +186,5 @@ stars.forEach(star => {
 
 updateRatingDisplay();
 
+
+
